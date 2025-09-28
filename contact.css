@@ -1,0 +1,108 @@
+body {
+  background-color: #f9f9f9;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header - same as your original */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e0e0e0;
+  padding: 8px 12px;
+}
+
+header img {
+  height: 36px;
+}
+
+.brand_name {
+  background-color: #f0ece7;
+  color: #1e1e1e;
+  border-radius: 30px;
+  padding: 6px 12px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.contact button {
+  font-size: 1rem;
+  padding: 6px 12px;
+  background-color: #c4b7a6;
+  color: #1e1e1e;
+  border: none;
+  border-radius: 30px;
+}
+
+/* Contact container */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5vw;
+  gap: 30px;
+}
+
+/* Social section */
+.social-section {
+  background-color: #f0ece7;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid #d3d3d3;
+  color: #1e1e1e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.social-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.social-section p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.qr-row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.qr-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qr-item img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+.qr-item a {
+  background-color: #c4b7a6;
+  color: #1e1e1e;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+/* Image section */
+.image-section {
+  display: flex;
+  justify-content: center;
+}
+
+.image-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  width: 80%;
+}
