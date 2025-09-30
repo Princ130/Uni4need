@@ -6,13 +6,13 @@ const products = [
         category: "Necklace"
     },
     {
-        name: "Fairy Garden",
+        name: "Fairy my princess",
         price: 980,
         image: "img/friend/0.jpg",
         category: "Necklace"
     },
     {
-        name: "Fairy Garden",
+        name: "steel macha",
         price: 980,
         image: "img/friend/0.jpg",
         category: "Necklace"

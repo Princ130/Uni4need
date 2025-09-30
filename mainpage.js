@@ -13,7 +13,7 @@ function createProductCard(product) {
     `;
 
     card.querySelector(".card_cover").addEventListener("click", (e) => {
-        e.preventDefault(); // prevent <a href="#"> from jumping
+        e.preventDefault();
         openPopup(product);
     });
 
@@ -44,7 +44,6 @@ function openPopup(product) {
     popupName.textContent = product.name;
     popupPrice.textContent = `Price: ₹${product.price}`;
     popupCategory.textContent = `Category: ${product.category}`;
-
     popup.style.display = "flex";
 }
 
@@ -74,4 +73,3 @@ buyNowBtn.addEventListener("click", () => {
 
 //     products.push(newPro);
 // })
-
