@@ -52,7 +52,29 @@ closeBtn.addEventListener("click", () => {
 });
 
 buyNowBtn.addEventListener("click", () => {
-    alert(`Buying ${popupName.textContent}!`);
+    alert(`Please fill the form to place the order!`);
+    popup.innerHTML = `
+    <div class="popup-card">
+            <div class= "popForm">
+                <form>
+                    <fieldset>
+                        <legend>MY INFO</legend>
+                        <lable for="name">Name</lable>
+                        <input type="text" id="name" name="name"><br>
+                        <lable for="mobile_no">Mobile no</lable>
+                        <input type="tel" name="mobile_no"><br>
+                        <lable for ="idCard" id = "idCard">id card</lable>
+                        <input type="file" name = "idCard" required><br>
+                        <lable for="registration_no">Registration no</lable>
+                        <input for="registration_no" type="number"></input>
+                    </fieldset>
+                </form> 
+            </div>
+            <button id="buyNow">Buy Now</button>
+            <button id="closePopup" class="close-btn">close</button>
+        </div>
+    `
+    // next target adding form on click.
 });
 
 
@@ -73,3 +95,14 @@ buyNowBtn.addEventListener("click", () => {
 
 //     products.push(newPro);
 // })
+
+
+
+
+
+
+
+
+
+
+// pop form 

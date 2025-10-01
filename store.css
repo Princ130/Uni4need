@@ -375,4 +375,9 @@ h1, h2, h3 {
     cursor: pointer;
 }
 
-
+.popForm{
+    margin-top: 10%;
+    font-size: large;
+    text-align: start;
+    position: block;
+}

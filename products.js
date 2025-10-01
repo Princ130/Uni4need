@@ -6,7 +6,7 @@ const products = [
         category: "Necklace"
     },
     {
-        name: "Fairy my princess",
+        name: "princess",
         price: 980,
         image: "img/friend/0.jpg",
         category: "Necklace"
