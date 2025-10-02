@@ -1,103 +1,120 @@
+// tbl prime goal backend api to place orders
+
+
 function createProductCard(product) {
-    const card = document.createElement('div');
-    card.className = 'card';
+        const card = document.createElement('div');
+        card.className = 'card';
 
-    card.innerHTML = `
-            <div class="card_cover"></div></a>
-            <div class="imagee"><img src="${product.image}" alt="Product Image"></div>
-            <div class="detail">
-                <div class="Name">${product.name}</div>
-                <div class="mrp">${product.price}</div>
-            </div>
-           
-    `;
+        card.innerHTML = `
+                <div class="card_cover"></div></a>
+                <div class="imagee"><img src="${product.image}" alt="Product Image"></div>
+                <div class="detail">
+                    <div class="Name">${product.name}</div>
+                    <div class="mrp">${product.price}</div>
+                </div>
+            
+        `;
 
-    card.querySelector(".card_cover").addEventListener("click", (e) => {
-        e.preventDefault();
-        openPopup(product);
+        card.querySelector(".card_cover").addEventListener("click", (e) => {
+            e.preventDefault();
+            openPopup(product);
+        });
+
+        return card;
+    }
+
+    const ffg = document.getElementById('product-container');
+    products.forEach(product => {
+        const card = createProductCard(product)
+        ffg.appendChild(card)
     });
 
-    return card;
-}
-
-const ffg = document.getElementById('product-container');
-products.forEach(product => {
-    const card = createProductCard(product)
-    ffg.appendChild(card)
-});
 
 
+    // another approach when we click on the card  cover a 
+    // popup card with all the details a buy button and a back button apprares on that card.
+    // Get popup DOM elements
+    const popup = document.getElementById("popup");
+    const popupImage = document.getElementById("popupImage");
+    const popupName = document.getElementById("popupName");
+    const popupPrice = document.getElementById("popupPrice");
+    const popupCategory = document.getElementById("popupCategory");
+    const closeBtn = document.getElementById("closePopup");
+    const buyNowBtn = document.getElementById("buyNow");
 
-// another approach when we click on the card  cover a 
-// popup card with all the details a buy button and a back button apprares on that card.
-// Get popup DOM elements
-const popup = document.getElementById("popup");
-const popupImage = document.getElementById("popupImage");
-const popupName = document.getElementById("popupName");
-const popupPrice = document.getElementById("popupPrice");
-const popupCategory = document.getElementById("popupCategory");
-const closeBtn = document.getElementById("closePopup");
-const buyNowBtn = document.getElementById("buyNow");
+    function openPopup(product) {
+        popupImage.src = product.image;
+        popupName.textContent = product.name;
+        popupPrice.textContent = `Price: ₹${product.price}`;
+        popupCategory.textContent = `Category: ${product.category}`;
+        popup.style.display = "flex";
+    }
 
-function openPopup(product) {
-    popupImage.src = product.image;
-    popupName.textContent = product.name;
-    popupPrice.textContent = `Price: ₹${product.price}`;
-    popupCategory.textContent = `Category: ${product.category}`;
-    popup.style.display = "flex";
-}
 
-closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-});
+    function CloseForm() {
+        const closeBtn = document.getElementById("closePopup"); // get the CURRENT one
+        if (closeBtn) {
+            closeBtn.addEventListener("click", () => {
+                popup.style.display = "none";
+            });
+        }
+    }
+    CloseForm()
 
-buyNowBtn.addEventListener("click", () => {
+    buyNowBtn.addEventListener("click", () => {
     alert(`Please fill the form to place the order!`);
+
     popup.innerHTML = `
-    <div class="popup-card">
-            <div class= "popForm">
+        <div class="popup-card">
+            <div class="popForm">
                 <form>
                     <fieldset>
                         <legend>MY INFO</legend>
-                        <lable for="name">Name</lable>
-                        <input type="text" id="name" name="name"><br>
-                        <lable for="mobile_no">Mobile no</lable>
-                        <input type="tel" name="mobile_no"><br>
-                        <lable for ="idCard" id = "idCard">id card</lable>
-                        <input type="file" name = "idCard" required><br>
-                        <lable for="registration_no">Registration no</lable>
-                        <input for="registration_no" type="number"></input>
+
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required><br>
+
+                        <label for="mobile_no">Mobile no</label>
+                        <input type="tel" id="mobile_no" name="mobile_no" required><br>
+
+                        <label for="idCard">ID Card</label>
+                        <input type="file" id="idCard" name="idCard" required><br>
+
+                        <label for="registration_no">Registration no</label>
+                        <input type="number" id="registration_no" name="registration_no"><br>
                     </fieldset>
-                </form> 
+                </form>
             </div>
-            <button id="buyNow">Buy Now</button>
-            <button id="closePopup" class="close-btn">close</button>
+            <button id="placeOrder">Place Order</button>
+            <button id="closePopup" class="close-btn">Close</button>
         </div>
-    `
-    // next target adding form on click.
+    `;
+
+
+// next target send the form to js using api.
+    // the function call is important since form won't close without it
+    CloseForm();
 });
 
 
 
-// addForm.addEventListener("submit",function (event){
-//     event.preventDefault();
-//     const name = document.getElementById("name").value;
-//     const price = document.getElementById("price").value;
-//     const category = document.getElementById("category").value;
-//     const image = document.getElementById("image").value;
 
-//     const newPro = {
-//         name : name,
-//         price : price,
-//         category: category,
-//         image : image,
-//     };
+    // addForm.addEventListener("submit",function (event){
+    //     event.preventDefault();
+    //     const name = document.getElementById("name").value;
+    //     const price = document.getElementById("price").value;
+    //     const category = document.getElementById("category").value;
+    //     const image = document.getElementById("image").value;
 
-//     products.push(newPro);
-// })
+    //     const newPro = {
+    //         name : name,
+    //         price : price,
+    //         category: category,
+    //         image : image,
+    //     };
 
-
-
+    //     products.push(newPro);
+    // })
 
 
 
@@ -105,4 +122,7 @@ buyNowBtn.addEventListener("click", () => {
 
 
 
-// pop form 
+
+
+
+    // pop form 
