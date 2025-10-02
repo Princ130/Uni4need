@@ -1,6 +1,8 @@
 # Uni4need
-just a project for an comming age business idea (an unknown compition for microsoft) <br>
+<h1>Uni4need</h1>
+just a project for an comming age business idea (an unknown compition for microsoft) <br><hr>
 phone oriented for now.
+
 <!-- i know the idea and the memory code for this project is SameerB
 (in case i forget) -->
 
