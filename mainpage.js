@@ -6,7 +6,7 @@ function createProductCard(product) {
         card.className = 'card';
 
         card.innerHTML = `
-                <div class="card_cover"></div></a>
+                <div class="card_cover"></div>
                 <div class="imagee"><img src="${product.image}" alt="Product Image"></div>
                 <div class="detail">
                     <div class="Name">${product.name}</div>
@@ -90,11 +90,46 @@ function createProductCard(product) {
         </div>
     `;
 
+        setTimeout(() => {
+            CloseForm();
+            const webAppUrl = "https://script.google.com/macros/s/AKfycbzugPnBOSmnqCXiVw6y9xKBzZj3mct8uFGtWP6sPVZCf4VTGV-w4L1USgHM0wZ4YW8u/exec";
+            const placeOrderBtn = document.getElementById("placeOrder");
+            placeOrderBtn.addEventListener("click", () => {
+                const name = document.getElementById("name").value;
+                const mobile = document.getElementById("mobile_no").value;
+                const registration = document.getElementById("registration_no").value;
 
-// next target send the form to js using api.
+                const formData = new URLSearchParams();
+                formData.append("name", name);
+                formData.append("mobile_no", mobile);
+                formData.append("registration_no", registration);
+
+                fetch(webAppUrl, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                },
+                body: new URLSearchParams({
+                    name: name,
+                    mobile_no: mobile,
+                    registration_no: registration
+                }).toString()
+                })
+                .then(res => res.text())
+                .then(response => {
+                alert("Success: " + response);
+                console.log("Google Sheets Response:", response);
+                })
+                .catch(err => {
+                alert("Error placing order");
+                console.error("Fetch error:", err);
+                });
+            });
+        }, 100);
+    });
     // the function call is important since form won't close without it
     CloseForm();
-});
+
 
 
 
