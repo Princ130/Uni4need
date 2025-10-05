@@ -65,55 +65,63 @@ function createProductCard(product) {
     alert(`Please fill the form to place the order!`);
 
     popup.innerHTML = `
-        <div class="popup-card">
-            <div class="popForm">
-                <form>
-                    <fieldset>
-                        <legend>MY INFO</legend>
-
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required><br>
-
-                        <label for="mobile_no">Mobile no</label>
-                        <input type="tel" id="mobile_no" name="mobile_no" required><br>
-
-                        <label for="idCard">ID Card</label>
-                        <input type="file" id="idCard" name="idCard" required><br>
-
-                        <label for="registration_no">Registration no</label>
-                        <input type="number" id="registration_no" name="registration_no"><br>
-                    </fieldset>
-                </form>
-            </div>
-            <button id="placeOrder">Place Order</button>
-            <button id="closePopup" class="close-btn">Close</button>
+    <div class="popup-card">
+        <div class="imagee">
+            <img src="${product.image}" alt="Product Image" />
         </div>
-    `;
+        <div class="popForm">
+            <form id="orderForm">
+                <fieldset>
+                    <legend>MY INFO</legend>
+
+                    <label for="mailId">E-mail</label>
+                    <input type="email" id="mailId" name="mailId" placeholder="enter your mail id" required><br>
+
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+
+                    <label for="mobile_no">Mobile no</label>
+                    <input type="text" id="mobile_no" name="mobile_no" placeholder="Mobile no with country code" required><br>
+
+                    <label for="registration_no">Registration no</label>
+                    <input type="number" id="registration_no" name="registration_no" placeholder="enter Your college registration number" required><br>
+
+                    <label for="idCard">ID Card</label>
+                    <input type="file" id="idCard" name="idCard" required><br>
+
+                    <button id="placeOrder" type="submit">Place Order</button>
+                    <button type="button" id="closePopup" class="close-btn">Close</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+`;
 
         setTimeout(() => {
             CloseForm();
             const webAppUrl = "https://script.google.com/macros/s/AKfycbzugPnBOSmnqCXiVw6y9xKBzZj3mct8uFGtWP6sPVZCf4VTGV-w4L1USgHM0wZ4YW8u/exec";
             const placeOrderBtn = document.getElementById("placeOrder");
-            placeOrderBtn.addEventListener("click", () => {
+            placeOrderBtn.addEventListener("submit", (event) => {
+                event.preventDefault();
                 const name = document.getElementById("name").value;
                 const mobile = document.getElementById("mobile_no").value;
                 const registration = document.getElementById("registration_no").value;
+                const mailId = document.getElementById("mailId").value;
 
                 const formData = new URLSearchParams();
+                formData.append("EmailId", mailId);
                 formData.append("name", name);
                 formData.append("mobile_no", mobile);
                 formData.append("registration_no", registration);
+                formData.append("product_name", product.name);
+                formData.append("product_name", product.price);
 
                 fetch(webAppUrl, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                 },
-                body: new URLSearchParams({
-                    name: name,
-                    mobile_no: mobile,
-                    registration_no: registration
-                }).toString()
+                body: formData.toString()
                 })
                 .then(res => res.text())
                 .then(response => {

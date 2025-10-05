@@ -251,10 +251,6 @@ header .contact button {
         aspect-ratio: 3 / 4;
     }
 
-    .detail {
-        font-size: 1rem;
-    }
-
     .navigator {
         position: fixed;
         top: 20%;
@@ -362,11 +358,8 @@ h1, h2, h3 {
     /* font-size: ; */
 }
 
-
 .popup-card button {
-    
-    margin-top: -15px;
-    margin-bottom: 190px;
+    margin-top: 2%;
     padding: 8px 16px;
     background-color: #c4b7a6;
     color: #1e1e1e;
