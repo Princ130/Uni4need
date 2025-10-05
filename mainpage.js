@@ -42,7 +42,10 @@ function createProductCard(product) {
     const closeBtn = document.getElementById("closePopup");
     const buyNowBtn = document.getElementById("buyNow");
 
+    let ssc = null;
+
     function openPopup(product) {
+        ssc = product;
         popupImage.src = product.image;
         popupName.textContent = product.name;
         popupPrice.textContent = `Price: ₹${product.price}`;
@@ -66,28 +69,25 @@ function createProductCard(product) {
 
     popup.innerHTML = `
     <div class="popup-card">
-        <div class="imagee">
-            <img src="${product.image}" alt="Product Image" />
-        </div>
         <div class="popForm">
             <form id="orderForm">
                 <fieldset>
                     <legend>MY INFO</legend>
 
                     <label for="mailId">E-mail</label>
-                    <input type="email" id="mailId" name="mailId" placeholder="enter your mail id" required><br>
+                    <input type="email" id="mailId" name="mailId" placeholder="enter your mail id" required ><br>
 
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required ><br>
 
                     <label for="mobile_no">Mobile no</label>
-                    <input type="text" id="mobile_no" name="mobile_no" placeholder="Mobile no with country code" required><br>
+                    <input type="number" id="mobile_no" name="mobile_no" placeholder="Mobile no with country code" required ><br>
 
                     <label for="registration_no">Registration no</label>
-                    <input type="number" id="registration_no" name="registration_no" placeholder="enter Your college registration number" required><br>
+                    <input type="number" id="registration_no" name="registration_no" placeholder="enter Your college registration number" required ><br>
 
                     <label for="idCard">ID Card</label>
-                    <input type="file" id="idCard" name="idCard" required><br>
+                    <input type="file" id="idCard" name="idCard" ><br>
 
                     <button id="placeOrder" type="submit">Place Order</button>
                     <button type="button" id="closePopup" class="close-btn">Close</button>
@@ -100,8 +100,8 @@ function createProductCard(product) {
         setTimeout(() => {
             CloseForm();
             const webAppUrl = "https://script.google.com/macros/s/AKfycbzugPnBOSmnqCXiVw6y9xKBzZj3mct8uFGtWP6sPVZCf4VTGV-w4L1USgHM0wZ4YW8u/exec";
-            const placeOrderBtn = document.getElementById("placeOrder");
-            placeOrderBtn.addEventListener("submit", (event) => {
+            const orderForm = document.getElementById("orderForm");
+            orderForm.addEventListener("submit", (event) => {
                 event.preventDefault();
                 const name = document.getElementById("name").value;
                 const mobile = document.getElementById("mobile_no").value;
@@ -113,8 +113,8 @@ function createProductCard(product) {
                 formData.append("name", name);
                 formData.append("mobile_no", mobile);
                 formData.append("registration_no", registration);
-                formData.append("product_name", product.name);
-                formData.append("product_name", product.price);
+                formData.append("product_name", ssc.name);
+                formData.append("product_price", ssc.price);
 
                 fetch(webAppUrl, {
                 method: "POST",
