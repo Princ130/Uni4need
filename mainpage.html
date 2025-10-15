@@ -53,9 +53,43 @@
                 <p id="popupCategory"></p>
             </div>
             <button id="buyNow">Buy Now</button>
+            <button id="shareProduct">Share</button>
             <button id="closePopup" class="close-btn">close</button>
         </div>
     </div>
+
+    <div id="Formal" class="popup-overlay" style="display: none;">
+        <div class="popup-card">
+        <div class="popForm">
+            <form id="orderForm" autocomplete="on">
+                <fieldset>
+                    <legend>MY INFO</legend>
+
+                    <label for="mailId">E-mail</label>
+                    <input type="email" id="mailId" name="mailId" placeholder="enter your mail id" required ><br>
+
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required ><br>
+
+                    <label for="mobile_no">Mobile no</label>
+                    <input type="number" id="mobile_no" name="mobile_no" placeholder="Mobile no with country code" required ><br>
+
+                    <label for="registration_no">Registration no</label>
+                    <input type="number" id="registration_no" name="registration_no" placeholder="enter Your college registration number" required ><br>
+
+                    <label for="idCard">ID Card</label>
+                    <input type="file" id="idCard" name="idCard"><br>
+
+                    <button id="placeOrder" type="submit">Place Order</button>
+                    <button type="button" id="closePopup" class="close-btn">Close</button>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    
 
     <script src="products.js"></script>
     <script src="mainpage.js"></script>

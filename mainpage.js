@@ -4,6 +4,7 @@
 function createProductCard(product) {
         const card = document.createElement('div');
         card.className = 'card';
+        card.id = `product-${encodeURIComponent(product.name)}`;
 
         card.innerHTML = `
                 <div class="card_cover"></div>
@@ -11,6 +12,7 @@ function createProductCard(product) {
                 <div class="detail">
                     <div class="Name">${product.name}</div>
                     <div class="mrp">${product.price}</div>
+                    
                 </div>
             
         `;
@@ -29,11 +31,6 @@ function createProductCard(product) {
         ffg.appendChild(card)
     });
 
-
-
-    // another approach when we click on the card  cover a 
-    // popup card with all the details a buy button and a back button apprares on that card.
-    // Get popup DOM elements
     const popup = document.getElementById("popup");
     const popupImage = document.getElementById("popupImage");
     const popupName = document.getElementById("popupName");
@@ -44,6 +41,24 @@ function createProductCard(product) {
 
     let ssc = null;
 
+    function highlightCard(productName) {
+        const cardId = `product-${encodeURIComponent(productName)}`;
+        const cardEl = document.getElementById(cardId);
+        if (cardEl) {
+            // Scroll into view
+            cardEl.scrollIntoView({ behavior: "smooth", block: "center" });
+
+            // Add highlight effect
+            cardEl.classList.add("highlight");
+
+            // Remove highlight after 4 seconds
+            setTimeout(() => {
+                cardEl.classList.remove("highlight");
+            }, 4000);
+        }
+    }
+
+
     function openPopup(product) {
         ssc = product;
         popupImage.src = product.image;
@@ -51,14 +66,25 @@ function createProductCard(product) {
         popupPrice.textContent = `Price: ₹${product.price}`;
         popupCategory.textContent = `Category: ${product.category}`;
         popup.style.display = "flex";
+        
     }
 
 
     function CloseForm() {
-        const closeBtn = document.getElementById("closePopup"); // get the CURRENT one
-        if (closeBtn) {
-            closeBtn.addEventListener("click", () => {
-                popup.style.display = "none";
+        // Close product details popup
+        const closeProductPopup = document.querySelector("#popup .close-btn") ;
+        const closeFormPopup = document.querySelector("#Formal .close-btn");
+        if (closeProductPopup ) {
+            closeProductPopup.addEventListener("click", () => {
+                popup.style.display = "none"
+                ssc = null;
+            });
+        }
+
+        // Close order form popup
+        if (closeFormPopup) {
+            closeFormPopup.addEventListener("click", () => {
+                Formal.style.display = "none";
             });
         }
     }
@@ -66,50 +92,27 @@ function createProductCard(product) {
 
     buyNowBtn.addEventListener("click", () => {
     alert(`Please fill the form to place the order!`);
-
-    popup.innerHTML = `
-    <div class="popup-card">
-        <div class="popForm">
-            <form id="orderForm">
-                <fieldset>
-                    <legend>MY INFO</legend>
-
-                    <label for="mailId">E-mail</label>
-                    <input type="email" id="mailId" name="mailId" placeholder="enter your mail id" required ><br>
-
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required ><br>
-
-                    <label for="mobile_no">Mobile no</label>
-                    <input type="number" id="mobile_no" name="mobile_no" placeholder="Mobile no with country code" required ><br>
-
-                    <label for="registration_no">Registration no</label>
-                    <input type="number" id="registration_no" name="registration_no" placeholder="enter Your college registration number" required ><br>
-
-                    <label for="idCard">ID Card</label>
-                    <input type="file" id="idCard" name="idCard" ><br>
-
-                    <button id="placeOrder" type="submit">Place Order</button>
-                    <button type="button" id="closePopup" class="close-btn">Close</button>
-                </fieldset>
-            </form>
-        </div>
-    </div>
-`;
+    Formal.style.display = "flex";
+    
 
         setTimeout(() => {
             CloseForm();
             const webAppUrl = "https://script.google.com/macros/s/AKfycbzugPnBOSmnqCXiVw6y9xKBzZj3mct8uFGtWP6sPVZCf4VTGV-w4L1USgHM0wZ4YW8u/exec";
             const orderForm = document.getElementById("orderForm");
-            orderForm.addEventListener("submit", (event) => {
+            orderForm.onsubmit = (event) => {
                 event.preventDefault();
+                const placeOrder = document.getElementById("placeOrder");
                 const name = document.getElementById("name").value;
                 const mobile = document.getElementById("mobile_no").value;
                 const registration = document.getElementById("registration_no").value;
                 const mailId = document.getElementById("mailId").value;
+                if (placeOrder) {
+                    placeOrder.disabled = true;
+                    placeOrder.textContent = "Placing Order...";
+                }
 
                 const formData = new URLSearchParams();
-                formData.append("EmailId", mailId);
+                formData.append("mailId", mailId);
                 formData.append("name", name);
                 formData.append("mobile_no", mobile);
                 formData.append("registration_no", registration);
@@ -127,16 +130,60 @@ function createProductCard(product) {
                 .then(response => {
                 alert("Success: " + response);
                 console.log("Google Sheets Response:", response);
+                Formal.style.display="none";
                 })
                 .catch(err => {
                 alert("Error placing order");
                 console.error("Fetch error:", err);
-                });
-            });
+                })
+
+                .finally(() => {
+                    // Re-enable the button after request completes
+                    if (placeOrder) {
+                        placeOrder.disabled = false;
+                        placeOrder.textContent = "Place Order";
+                    }
+                });            
+            };
         }, 100);
     });
     // the function call is important since form won't close without it
     CloseForm();
+
+    
+const shareBtn = document.getElementById("shareProduct");
+if (shareBtn) {
+    shareBtn.addEventListener("click", () => {
+        if (!ssc) {
+            alert("No product selected to share.");
+            return;
+        }
+
+        const shareUrl = `${window.location.origin}${window.location.pathname}#product-${encodeURIComponent(ssc.name)}`;
+
+        navigator.clipboard.writeText(shareUrl)
+            .then(() => {
+                alert("✅ Product link copied to clipboard!\nPaste it anywhere to share.");
+            })
+            .catch((err) => {
+                console.error("Copy failed:", err);
+                alert("❌ Failed to copy the link. Please try again.");
+            });
+    });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash;
+    if (hash.startsWith("#product-")) {
+        const productName = decodeURIComponent(hash.replace("#product-", ""));
+        const matchedProduct = products.find(p => p.name === productName);
+
+        if (matchedProduct) {
+            highlightCard(matchedProduct.name);
+            openPopup(matchedProduct);
+        }
+    }
+});
 
 
 
@@ -163,9 +210,7 @@ function createProductCard(product) {
 
 
 
+// problem
 
 
-
-
-
-    // pop form 
+// Pengind placing order animation
