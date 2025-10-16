@@ -6,63 +6,34 @@ const products = [
         category: "Necklace"
     },
     {
-        name: "princess",
-        price: 980,
-        image: "img/friend/0.jpg",
-        category: "Necklace"
+        name: "Crochet ball",
+        price: 249,
+        image: "img/friend/crochet.jpg",
+        category: "Bagcharm"
     },
     {
-        name: "steel macha",
-        price: 980,
-        image: "img/friend/0.jpg",
-        category: "Necklace"
+        name: "Dream catcher",
+        price: 379,
+        image: "img/friend/wall hang.jpg",
+        category: "Wall_hang"
     },
     {
-        name: "Fairy Garden",
-        price: 980,
-        image: "img/friend/0.jpg",
-        category: "Necklace"
-    },{
-        name: "Fairy Garden",
-        price: 980,
-        image: "img/friend/0.jpg",
-        category: "Necklace"
+        name: "Panda lamp",
+        price: 210,
+        image: "img/friend/panda.jpg",
+        category: "lamp"
     },
     {
-        name: "Fairy Garden",
-        price: 980,
-        image: "img/friend/0.jpg",
-        category: "Necklace"
+        name: "Groot stand",
+        price: 300,
+        image: "img/friend/groot stand.jpg",
+        category: "decor"
     },
     {
-        name: "Fairy Garden",
-        price: 980,
-        image: "img/friend/0.jpg",
-        category: "Necklace"
-    },
-    {
-        name: "Fairy Garden",
-        price: 980,
-        image: "img/friend/0.jpg",
-        category: "Necklace"
-    },
-    {
-        name: "Fairy Garden",
-        price: 980,
-        image: "img/friend/0.jpg",
-        category: "Necklace"
-    },
-    {
-        name: "Fairy Garden",
-        price: 980,
-        image: "img/friend/0.jpg",
-        category: "Necklace"
-    },
-    {
-        name: "Fairy Garden",
-        price: 980,
-        image: "img/friend/0.jpg",
-        category: "Necklace"
-    },
+        name: "Us miniature",
+        price: 229,
+        image: "img/friend/uNme.jpg",
+        category: "decor"
+    }
     
 ];

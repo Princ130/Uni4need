@@ -1,6 +1,3 @@
-// tbl prime goal backend api to place orders
-
-
 function createProductCard(product) {
         const card = document.createElement('div');
         card.className = 'card';
@@ -38,7 +35,6 @@ function createProductCard(product) {
     const popupCategory = document.getElementById("popupCategory");
     const closeBtn = document.getElementById("closePopup");
     const buyNowBtn = document.getElementById("buyNow");
-
     let ssc = null;
 
     function highlightCard(productName) {
@@ -57,7 +53,6 @@ function createProductCard(product) {
             }, 4000);
         }
     }
-
 
     function openPopup(product) {
         ssc = product;
@@ -97,7 +92,7 @@ function createProductCard(product) {
 
         setTimeout(() => {
             CloseForm();
-            const webAppUrl = "https://script.google.com/macros/s/AKfycbzugPnBOSmnqCXiVw6y9xKBzZj3mct8uFGtWP6sPVZCf4VTGV-w4L1USgHM0wZ4YW8u/exec";
+            const alpha = "https://script.google.com/macros/s/AKfycbzugPnBOSmnqCXiVw6y9xKBzZj3mct8uFGtWP6sPVZCf4VTGV-w4L1USgHM0wZ4YW8u/exec";
             const orderForm = document.getElementById("orderForm");
             orderForm.onsubmit = (event) => {
                 event.preventDefault();
@@ -119,7 +114,7 @@ function createProductCard(product) {
                 formData.append("product_name", ssc.name);
                 formData.append("product_price", ssc.price);
 
-                fetch(webAppUrl, {
+                fetch(alpha, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
