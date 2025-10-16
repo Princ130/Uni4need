@@ -26,7 +26,7 @@ const products = [
     {
         name: "Groot stand",
         price: 300,
-        image: "img/friend/Groot stand.jpg",
+        image: "img/friend/Groot.jpg",
         category: "decor"
     },
     {
