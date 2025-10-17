@@ -34,6 +34,12 @@ const products = [
         price: 229,
         image: "img/friend/uNme.jpg",
         category: "decor"
+    },
+    {
+        name: "Doms pens",
+        price: 279,
+        image: "img/friend/Pen.jpg",
+        category: "100 blue pen"
     }
     
 ];
