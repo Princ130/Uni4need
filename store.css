@@ -94,8 +94,8 @@ header .contact button {
     justify-content: center;
     background-color: rgb(240, 236, 231);
     width: 93%;
-    border-bottom-right-radius: 20px;
-    border-top-left-radius: 20px;
+    border-radius: 20px;
+    border-top-right-radius: 0px;
     padding-top: 4%;
     padding-left: 10%;
     color: #1e1e1e;
