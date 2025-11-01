@@ -69,10 +69,11 @@ header .contact button {
     flex-direction: column;
     position: relative;
     aspect-ratio: 3/4;
-    background-color: rgb(211, 211, 211);
+    background: linear-gradient(135deg, #fdfbfb, #ebedee);
     border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.158);
     overflow: hidden;
-    margin-bottom: 10%;
+    margin-bottom: -1vw;
     z-index: 1;
     border: solid black;
 }
@@ -220,7 +221,8 @@ header .contact button {
 
 .maximus{
     position: relative;
-    max-width: 350px;
+    max-width: 310px;
+    left: 20px;
     max-height: 80vh;
     align-self: center;
     justify-self: center;
