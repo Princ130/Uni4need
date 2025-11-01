@@ -185,7 +185,7 @@ header .contact button {
     width: 60%;
     margin: 7% -70%;
     z-index: 2;
-    border: solid black;
+    border: solid black 0.2rem;
     border-radius: 20%;
 }
 
