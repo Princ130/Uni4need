@@ -70,7 +70,7 @@ header .contact button {
     position: relative;
     aspect-ratio: 3/4;
     background-color: rgb(211, 211, 211);
-    border-radius: 20%;
+    border-radius: 20px;
     overflow: hidden;
     margin-bottom: 10%;
     z-index: 1;
@@ -82,8 +82,8 @@ header .contact button {
     width: 96%;
     margin: 2%;
     opacity: 1;
-    border-top-left-radius: 20%;
-    border-top-right-radius: 20%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     height: 85%;
     z-index: -1;
 }
@@ -93,7 +93,7 @@ header .contact button {
     flex-direction: column;
     justify-content: center;
     background-color: rgb(240, 236, 231);
-    width: 93%;
+    width: 95%;
     border-radius: 20px;
     border-top-right-radius: 0px;
     padding-top: 4%;
@@ -188,10 +188,7 @@ header .contact button {
     border-radius: 20%;
 }
 
-.navigator:active{
-    margin: 7% -25%;
-}
-
+.navigator:active,
 .navigator:hover{
     margin: 7% -25%;
 }
@@ -223,7 +220,7 @@ header .contact button {
 
 .maximus{
     position: relative;
-    max-width: 320px;
+    max-width: 350px;
     max-height: 80vh;
     align-self: center;
     justify-self: center;
@@ -233,6 +230,10 @@ header .contact button {
 }
 
 @media screen and (min-width: 1024px) {
+    .pow{
+        visibility: hidden;
+        position: absolute;
+    }
     body {
         font-size: 20px;
     }
@@ -253,6 +254,7 @@ header .contact button {
 
     .product .card {
         aspect-ratio: 3 / 4;
+        
     }
 
     .navigator {
@@ -290,6 +292,10 @@ header .contact button {
 }
 
 @media screen and (min-width: 700px){
+    .pow{
+        visibility: hidden;
+        position: absolute;
+    }
     .product {
         grid-template-columns: repeat(4, 1fr); /* 4 cards on PC */
         gap: 2vw;
@@ -402,3 +408,102 @@ h1, h2, h3 {
     text-align: start;
     position: block;
 }
+
+/* Main container */
+/* 🌸 Outer pink container */
+.pow {
+    display: block;
+    background: linear-gradient(135deg, #ffe5ec, #ffc8dd);
+    padding: 2%;
+    border: 2px solid #ffafcc;
+    border-radius: 20px;
+    margin: 3%;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+}
+
+/* 🌺 Product card */
+.roll {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin: 5px;
+    height: 33%; /* compact height */
+    width: auto;
+    flex-direction: row;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.roll:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+/* 🖼️ Image section (smaller) */
+.product_image {
+    flex: 0 0 50%; /* smaller image width */
+    height: 50%;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.product_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.product_image img:hover {
+    transform: scale(1.05);
+}
+
+/* 📝 Details section (right) */
+.pro_details {
+    flex: 1;
+    background-color: #fdfdfd;
+    padding: 0.1rem 1rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pro_details h2 {
+    color: #b5179e;
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.pro_details p {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+}
+
+.pro_details button {
+    background-color: #ffafcc;
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    align-self: start;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.pro_details button:hover {
+    background-color: #f28482;
+    transform: translateY(-2px);
+}
+
