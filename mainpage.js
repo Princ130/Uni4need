@@ -21,7 +21,19 @@ function createProductCard(product) {
 
         return card;
     }
+    function toggleNavigator() {
+        const nav = document.getElementById('navigator');
+        const tg = document.getElementById("navigatorSwitch");
+        
+        nav.classList.toggle('square');
 
+        // Change button text based on state
+        if(nav.classList.contains('square')) {
+            tg.innerText = "*-*!";
+        } else {
+            tg.innerHTML = "<strong>Just exploring <br> (^-^)</strong>";
+        }
+    }
     const ffg = document.getElementById('product-container');
     products.forEach(product => {
         const card = createProductCard(product)

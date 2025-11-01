@@ -182,32 +182,71 @@ header .contact button {
     justify-content: flex-start;    /* Optional: center horizontally */
     background-color: rgb(245, 235, 224);
     height: 60%;
-    width: 60%;
-    margin: 7% -70%;
+    width: 80%;
+    margin: 7% -20%;
     z-index: 2;
     border: solid black 0.2rem;
-    border-radius: 20%;
+    border-top-right-radius: 350px;
+    border-bottom-right-radius: 170px;
+    overflow: hidden;
+    transition: all 0.8s ease;
 }
 
-.navigator:active,
-.navigator:hover{
-    margin: 7% -25%;
-}
 
 .navigator .switch {
     display: flex;
     position: absolute;
-    right: -10%;       /* Pushes it outside the navigator */
-    top: 45%;          /* Centers vertically */
-    width: 20%;
+    right: 2.5%;
+    bottom: 3.5%;
+    width: 40%;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
+    background-color: #f3f3f3;
+    align-items: center;
+    justify-content: center;
+    border-right: rgb(0, 0, 0) 100px;
+    border-bottom: blue 100px;
+    font-size: large;
+    transform: rotateZ(-42deg);
+    transition: all 0.8s ease;
+}
+
+.navigator.square {
+    position: fixed;
+    overflow: visible;
+    display: flex;
+    font-size: large;
+    top: 20vh;        /* Center children vertically */
+    justify-content: flex-start;    /* Optional: center horizontally */
+    background-color: rgb(245, 235, 224);
+    height: 60%;
+    width: 60%;
+    margin: 7% -70%;
+    z-index: 2;
+    border: solid black;
+    border-radius: 20%;
+    transition: all 0.8s ease;
+}
+
+/* optional styling feedback for the switch */
+.navigator.square .switch {
+    display: flex;
+    position: absolute;
+    right: -12%;       
+    bottom: 40%;
+    aspect-ratio: 1 / 1;
+    width: 25%;
+    height: 20%;
+    border-radius: 50% ;
+    border: #1e1e1e solid;
     background-color: #f3f3f3;
     align-items: center;
     justify-content: center;
     border-top: blue 100px;
     border-left: blue 100px;
     border-bottom: blue 100px;
+    transform: rotateX(45deg);
+    transition: all 1.2s ease;
 }
 
 .links {
