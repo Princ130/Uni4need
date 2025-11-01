@@ -177,7 +177,7 @@ header .contact button {
     position: fixed;
     display: flex;
     font-size: large;
-    align-content: center;        /* Center children vertically */
+    top: 20vh;        /* Center children vertically */
     justify-content: flex-start;    /* Optional: center horizontally */
     background-color: rgb(245, 235, 224);
     height: 60%;
@@ -431,12 +431,12 @@ h1, h2, h3 {
 .roll {
     display: flex;
     align-items: center;
+    justify-items: center;
     background-color: #fff;
     border-radius: 16px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     overflow: hidden;
-    margin: 5px;
-    height: 33%; /* compact height */
+    height: auto;
     width: auto;
     flex-direction: row;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -450,7 +450,7 @@ h1, h2, h3 {
 /* 🖼️ Image section (smaller) */
 .product_image {
     flex: 0 0 50%; /* smaller image width */
-    height: 50%;
+    height: auto;
     overflow: hidden;
     border-radius: 16px;
 }
