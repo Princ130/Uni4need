@@ -8,13 +8,9 @@ body {
     z-index: 2;
     top: 0vh;
     left: 0vh;
-    background-color: #5555553d;
+    background-color: #55555560;
     width: 100vw;
     height: 100vh;
-    transition: all 0.8s ease;
-}
-.overlay.square{
-    visibility: hidden;
     transition: all 0.8s ease;
 }
 
@@ -286,12 +282,15 @@ header .contact button {
     right: -20%;
     bottom: -10%;
     animation: rot linear infinite 5s;
+    transition: all 3s ease;
 }
 
-.orbit1.nama{
-    background-color: #5ab1ef;
-    animation: none;
-    position: relative;
+.orbit1.small {
+    width: 0px;
+    height: 0px;
+    transition: 2ms;
+    visibility: hidden;
+    animation: none; /* optional: stop rotation if needed */
 }
 
 @keyframes rot {

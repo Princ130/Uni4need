@@ -25,11 +25,15 @@ function createProductCard(product) {
         const nav = document.getElementById('navigator');
         const tg = document.getElementById("navigatorSwitch");
         const overlay = document.getElementById("overlay");
+        const switchBtn = document.querySelector('.switch');
+        const orbit = document.querySelector('.orbit1');
+        orbit.classList.toggle('small');
         nav.classList.toggle('square');
         overlay.classList.toggle("square")
         // Change button text based on state
         if(nav.classList.contains('square')) {
             tg.innerText = "*-*!";
+            
         } else {
             tg.innerHTML = "<strong>Just exploring <br> (^-^)</strong>";
         }
