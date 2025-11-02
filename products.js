@@ -1,17 +1,5 @@
 const products = [
     {
-        name: "Fairy Garden",
-        price: 980,
-        image: "img/friend/0.jpg",
-        category: "Necklace"
-    },
-    {
-        name: "Groot stand",
-        price: 300,
-        image: "img/friend/Groot.jpg",
-        category: "decor"
-    },
-    {
         name: "Crochet ball",
         price: 249,
         image: "img/friend/crochet.jpg",
@@ -33,6 +21,18 @@ const products = [
         name: "Us miniature",
         price: 229,
         image: "img/friend/uNme.jpg",
+        category: "decor"
+    },
+    {
+        name: "Fairy Garden",
+        price: 980,
+        image: "img/friend/0.jpg",
+        category: "Necklace"
+    },
+    {
+        name: "Groot stand",
+        price: 300,
+        image: "img/friend/Groot.jpg",
         category: "decor"
     },
     {
