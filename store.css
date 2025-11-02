@@ -13,6 +13,10 @@ body {
     height: 100vh;
     transition: all 0.8s ease;
 }
+.overlay.square{
+    background-color: transparent;
+    visibility: hidden;
+}
 
 a{
     color: inherit;        
