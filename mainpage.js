@@ -38,6 +38,14 @@ function createProductCard(product) {
             tg.innerHTML = "<strong>Just exploring <br> (^-^)</strong>";
         }
     }
+
+    const bouble = document.querySelectorAll('.bouble');
+    bouble.forEach(bouble=>{
+        bouble.addEventListener('click',()=>{
+            toggleNavigator();
+        })
+    })
+
     const ffg = document.getElementById('product-container');
     products.forEach(product => {
         const card = createProductCard(product)

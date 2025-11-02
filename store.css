@@ -285,7 +285,7 @@ header .contact button {
     border-radius: 50%;
     right: -20%;
     bottom: -10%;
-    animation: rot linear infinite 5s;
+    animation: rot linear infinite 8s;
     transition: all 3s ease;
 }
 
@@ -309,7 +309,7 @@ header .contact button {
     }    
 }
 
-#bouble{
+.bouble{
     display: grid;
     position: absolute;
     background: radial-gradient(circle at 30% 30%, #aee1f9, #5ab1ef);
