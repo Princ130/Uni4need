@@ -291,22 +291,24 @@ header .contact button {
 }
 
 #bouble{
+    display: grid;
     position: absolute;
     background-color: #c3da3e3d;
     aspect-ratio: 1/1;
     width: 25%;
     margin: -5%;
-    text-align: center;
-    text-justify: center;
+    place-items: center; 
     border-radius: 50%;
+    overflow: auto;
 }
 .book{
     left: 42%;
 
 }
 
-.decor{
-    top:37.5%;
+.decor,
+.utility{
+    top:42%;
 }
 
 .key_chain{
@@ -316,7 +318,6 @@ header .contact button {
 
 .utility{
     right: 0%;
-    top:37.5%;
 }
 
 .Electronics{
