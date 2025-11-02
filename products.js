@@ -6,6 +6,12 @@ const products = [
         category: "Necklace"
     },
     {
+        name: "Groot stand",
+        price: 300,
+        image: "img/friend/Groot.jpg",
+        category: "decor"
+    },
+    {
         name: "Crochet ball",
         price: 249,
         image: "img/friend/crochet.jpg",
@@ -22,12 +28,6 @@ const products = [
         price: 210,
         image: "img/friend/panda.jpg",
         category: "lamp"
-    },
-    {
-        name: "Groot stand",
-        price: 300,
-        image: "img/friend/Groot.jpg",
-        category: "decor"
     },
     {
         name: "Us miniature",
