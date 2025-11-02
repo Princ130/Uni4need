@@ -196,7 +196,11 @@ header .contact button {
     font-size: large;
     top: 20vh;        /* Center children vertically */
     justify-content: flex-start;    /* Optional: center horizontally */
-    background-color: rgb(245, 235, 224);
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.8s ease;
     height: 60%;
     width: 80%;
     margin: 7% -20%;
@@ -284,8 +288,10 @@ header .contact button {
     animation: rot linear infinite 5s;
 }
 
-.orbit1{
+.orbit1.nama{
     background-color: #5ab1ef;
+    animation: none;
+    position: relative;
 }
 
 @keyframes rot {
@@ -321,6 +327,10 @@ header .contact button {
 .decor,
 .utility{
     top:42%;
+}
+
+.utility.nama{
+    display:none;
 }
 
 .key_chain{
