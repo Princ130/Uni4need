@@ -269,13 +269,18 @@ header .contact button {
 
 .orbit1{
     position: absolute;
-    background-color: #d87979;
+    background: radial-gradient(circle at 30% 30%, #cdeac0, #aacdbb, #83aebd);
+    box-shadow: 0 0 35px rgba(131, 174, 189, 0.4);
     aspect-ratio: 1/1;
     width: 90%;
     border-radius: 50%;
     right: -20%;
     bottom: -10%;
     animation: rot linear infinite 5s;
+}
+
+.orbit1{
+    background-color: #5ab1ef;
 }
 
 @keyframes rot {
