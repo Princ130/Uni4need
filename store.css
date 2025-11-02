@@ -289,6 +289,24 @@ header .contact button {
     transition: all 3s ease;
 }
 
+.links h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e1e1e;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+  padding: 10px 20px;
+  border-radius: 50px;
+  border-top-right-radius: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: left;
+  margin-right: 10%;
+  margin-left: -10%;
+}
+
+
 .orbit1.small {
     width: 0px;
     height: 0px;
