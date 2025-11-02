@@ -267,6 +267,79 @@ header .contact button {
     z-index: 3;
 }
 
+.orbit1{
+    position: absolute;
+    background-color: #d87979;
+    aspect-ratio: 1/1;
+    width: 90%;
+    border-radius: 50%;
+    right: -20%;
+    bottom: -10%;
+    animation: rot linear infinite 5s;
+}
+
+@keyframes rot {
+    0%{
+        transform: rotateZ(0deg);
+    }
+    50%{
+        transform: rotateZ(180deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }    
+}
+
+#bouble{
+    position: absolute;
+    background-color: #c3da3e3d;
+    aspect-ratio: 1/1;
+    width: 25%;
+    margin: -5%;
+    text-align: center;
+    text-justify: center;
+    border-radius: 50%;
+}
+.book{
+    left: 42%;
+
+}
+
+.decor{
+    top:37.5%;
+}
+
+.key_chain{
+    bottom: 0%;
+    right: 37.5%;
+}
+
+.utility{
+    right: 0%;
+    top:37.5%;
+}
+
+.Electronics{
+    top: 12%;
+    left: 12%;
+}
+
+.T2{
+    left: 12.5%;
+    bottom: 12.5%;
+}
+
+.T3{
+    right: 12.5%;
+    top:12%;
+}
+.E2{
+    bottom: 15%;
+    right:12%;
+}
+
+
+
 .links {
     display: flex;
     flex-direction: column;
