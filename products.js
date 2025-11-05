@@ -12,16 +12,16 @@ const products = [
         category: "Wall_hang"
     },
     {
-        name: "Panda lamp",
-        price: 210,
-        image: "img/friend/panda.jpg",
-        category: "lamp"
-    },
-    {
         name: "Us miniature",
         price: 229,
         image: "img/friend/uNme.jpg",
         category: "decor"
+    },
+    {
+        name: "Panda lamp",
+        price: 210,
+        image: "img/friend/panda.jpg",
+        category: "lamp"
     },
     {
         name: "Fairy Garden",
